@@ -15,12 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('well')->middleware('isAdmin');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
+Route::post('/addOrder', [\App\Http\Controllers\OrdersController::class, 'uploadOrder']
+)->name('addOrder');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
