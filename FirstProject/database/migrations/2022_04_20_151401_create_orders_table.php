@@ -15,6 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('subject');
+            $table->string('client_name');
+            $table->string('sms');
+            $table->string('email');
+            $table->string('file')->default(null);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
